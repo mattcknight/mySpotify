@@ -1,0 +1,34 @@
+<!--
+
+//FIXME: Play Preview and Open in Spotify link text does not display
+//FIXME: Open in spotify has LOAD ERROR
+//FIXME: Some tracks do not show image
+
+-->
+
+<ion-view title="{{listname}}">
+    <ion-content class="has-header">
+        <ion-list>
+            <ion-item ng-repeat="item in tracks" class="list card">
+                <div class="item item-avitar">
+                    <img src="{{item.track.album.images[0].url}}" />
+                    <h2>{{item.track.name}}</h2>
+                    <p>{{item.track.artist[0].name}}</p>
+                </div>
+                <div class="item tabs tabs-secondary tab-icon-left">
+                    <a class="tab-item" ng-click="playTrack(item)">
+                        <i class="icon ion-music-note"></i>Play Preview
+                    </a>
+                    <a class="tab-item" ng-click="openSpotify(item.track.external_urls.spotify)">
+                        <i class="icon ion-share"></i>Open In Spotify
+                    </a>
+
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar>
+        <button class="button button-outline button-balanced" ng-click="play()"><i class="icon-play">Play</i></button>
+        <button class="button button-outline button-balanced" ng-click="stop()"><i class="icon-stop">Stop</i></button>
+    </ion-footer-bar>
+</ion-view>
